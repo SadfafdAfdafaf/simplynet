@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+		<script type="text/javascript" src="l4.js"></script>
+  </head>
+  <body>
+    <div style="width: 620px">      
+      <div>
+        <span>
+          <div style="display: inline-block; min-width: 300px; max-width: 300px;">
+            <div class="table_header">Параметры очереди</div>
+            <div style="text-align: left">
+              Распределение: равномерное<br><br>              
+              <div style="display: inline-block">
+                Нижняя граница распределения:<br>
+                Верхняя граница распределения:
+              </div>
+              <div style="display: inline-block">
+                <input type="text" class="text_field" style="width: 60px" id="queue-a" value="1" /><br>
+                <input type="text" class="text_field" style="width: 60px" id="queue-b" value="10" />
+              </div>
+            </div>
+          </div>
+          
+          <div style="display: inline-block; min-width: 300px; max-width: 300px">
+            <div class="table_header">Параметры обслуживающего аппарата</div>
+            <div style="text-align: left">
+              Распределение: Гаусса<br><br>              
+              <div style="display: inline-block">
+                Математическое ожидание:<br>
+				Дисперсия:
+              </div>
+              <div style="display: inline-block">
+                <input type="text" class="text_field" style="width: 60px" id="processor-mu" value="0"/><br>
+				<input type="text" class="text_field" style="width: 60px" id="processor-sigma" value="1"/>
+              </div>
+            </div>
+          </div>
+        </span><br><br>
+        <span>
+          <div style="display: inline-block; min-width: 300px; max-width: 300px">
+            <div class="table_header">Параметры моделирования</div>
+            <div style="text-align: left">
+              <div style="display: inline-block">
+                Длина очереди:<br>
+                Количество заявок:<br>
+                Вероятность возврата:
+              </div>
+              <div style="display: inline-block">
+                <input type="text" class="text_field" style="width: 60px" id="queue-length" value="50" /><br>
+                <input type="text" class="text_field" style="width: 60px" id="req-count" value="100" /><br>
+                <input type="text" class="text_field" style="width: 60px" id="return-prob" value="0" />%
+              </div>
+            </div>
+          </div>
+          <div style="display: inline-block; min-width: 300px; max-width: 300px">
+            <div class="table_header">Параметры метода моделирования</div>
+            <div style="text-align: left">
+              <div style="display: inline-block">
+                Метод:<br><br>
+                dt:
+              </div>
+              <div style="display: inline-block">
+                <select class="text_field" id="mode">
+                  <option>Событийный</option>
+                  <option>dt</option>
+                </select><br><br>
+                <input type="text" class="text_field" style="width: 60px" id="dt" value="1"/>
+              </div>
+            </div>
+          </div>
+        </span><br><br>
+        <button onclick="simulate()" id="sim-button" style="width: 45%">Запустить симуляцию</button>
+        <button onclick="get_result()" style="width: 45%">Рассчитать оптимальную длину очереди</button><br>
+        <div>
+          Оптимальная длина очереди: <span id="result"></span><br><br>
+          
+          <div id="simulation-info" style="margin: 0 auto;  width: 570px">            
+            <div>
+              <div style="display: inline-block; text-align: left">
+                Длина очереди:<br>
+                Заявок в очереди:<br>
+                Заявок осталось создать:
+              </div>
+              <div style="display: inline-block; min-width: 50px; max-width: 50px; text-align: left">
+                <span id="sdata-a">0</span><br>
+                <span id="sdata-b">0</span><br>
+                <span id="sdata-c">0</span>
+              </div>
+              <div style="display: inline-block; text-align: left">
+                Обработано заявок:<br>
+                Возвращено заявок:<br>
+                Потеряно заявок:
+              </div>
+              <div style="display: inline-block; min-width: 50px; max-width: 50px; text-align: left">
+                <span id="sdata-d">0</span><br>
+                <span id="sdata-e">0</span><br>
+                <span id="sdata-f">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
